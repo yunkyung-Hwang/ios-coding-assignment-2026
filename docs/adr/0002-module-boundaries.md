@@ -8,7 +8,7 @@
 
 ## 결정
 - Features / Domain / Core 3계층
-- `ProductFeature`(화면), `FavoriteKit`(화면 없는 도메인), Core 4모듈
+- `ProductFeature`(화면), `FavoriteKit`(화면 없는 도메인), Core 3모듈
 - 계층 판별
   - 화면이 있으면 Features
   - 화면 없이 도메인을 소유하면 Domain (규칙·영속·공유 상태 포함)

@@ -5,7 +5,6 @@
 ## 맥락
 - 목록에서 상세로 이동 필요 (R-02)
 - SwiftUI 에 정립된 Coordinator 형태가 없음
-- 같은 Feature 를 앱과 데모 앱 양쪽에 배치할 계획
 
 ## 결정
 - `NavigationStack` 은 **App 이 소유**
@@ -16,7 +15,7 @@
 ## 근거
 - Feature 가 `NavigationStack` 을 가지면 "자신이 루트" 를 전제하게 되고,
   다른 화면에서 push 될 때 스택이 중첩되어 동작이 깨짐
-- 호스트가 스택을 소유하면 같은 Feature 를 앱과 데모 앱에 그대로 배치 가능
+- 호스트가 스택을 소유하면 같은 Feature 를 다른 스택 위에도 그대로 배치 가능
 - Coordinator 가 상태만 가지므로 View 없이 path 검증으로 테스트 가능
 - `weak` 보유로 ViewModel ↔ Coordinator 순환 참조를 끊음
 - Feature 간 이동이 생기면 App 이 Route 를 감싸는 상위 타입을 정의.

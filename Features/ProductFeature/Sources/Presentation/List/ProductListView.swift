@@ -7,16 +7,10 @@ struct ProductListView: View {
     @State private var viewModel: ProductListViewModel
 
     private let favoriteStore: any FavoriteStore
-    private let onSelect: (ProductSummary) -> Void
 
-    init(
-        viewModel: ProductListViewModel,
-        favoriteStore: any FavoriteStore,
-        onSelect: @escaping (ProductSummary) -> Void
-    ) {
+    init(viewModel: ProductListViewModel, favoriteStore: any FavoriteStore) {
         _viewModel = State(initialValue: viewModel)
         self.favoriteStore = favoriteStore
-        self.onSelect = onSelect
     }
 
     var body: some View {
@@ -99,7 +93,7 @@ struct ProductListView: View {
             toggleFavorite: { Task { await favoriteStore.toggle(product.id) } }
         )
         .contentShape(Rectangle())
-        .onTapGesture { onSelect(product) }
+        .onTapGesture { viewModel.select(product) }
     }
 }
 

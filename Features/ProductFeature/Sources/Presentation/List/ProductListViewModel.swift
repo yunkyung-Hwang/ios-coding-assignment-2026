@@ -12,6 +12,9 @@ final class ProductListViewModel {
     /// 추가 조회 실패 알림. 사용자가 닫으면 nil
     var loadMoreFailure: String?
 
+    /// 순환 참조를 끊기 위해 weak
+    @ObservationIgnored weak var coordinator: (any ProductCoordinating)?
+
     @ObservationIgnored private let paginator: Paginator<ProductSummary>
 
     var state: LoadState<[ProductSummary]> { paginator.state }
@@ -26,6 +29,10 @@ final class ProductListViewModel {
         ) { offset, limit in
             try await fetchProductList.execute(offset: offset, limit: limit)
         }
+    }
+
+    func select(_ product: ProductSummary) {
+        coordinator?.showDetail(id: product.id)
     }
 
     func onAppear() async {

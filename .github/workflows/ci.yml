@@ -1,0 +1,67 @@
+name: CI
+
+# clone 상태에서 빌드·테스트되는지 검증
+# Tuist·mise 를 설치하지 않는다. 설치하면 "추가 작업 없이 빌드" 검증이 성립하지 않음
+on:
+  push:
+    branches: [main, "feat/**"]
+  pull_request:
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test:
+    # macos-26 러너에 Xcode 26.0~26.6 설치. 폴백 체인이 요구 버전 26.5 선택
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Xcode 선택
+        run: |
+          ls -d /Applications/Xcode*.app
+          XC=$(ls -d /Applications/Xcode_26.5*.app 2>/dev/null | head -1)
+          [ -z "$XC" ] && XC=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          sudo xcode-select -s "${XC:-/Applications/Xcode.app}"
+          xcodebuild -version
+          swift --version
+
+      # 배포 타깃이 최신 OS 보다 낮아 최신 런타임만으로는 검증이 성립하지 않는다.
+      # 메이저가 다른 런타임이 설치돼 있으면 함께 검증한다.
+      # 같은 메이저끼리는 Foundation 구현이 같아 중복 실행일 뿐이므로 한 번만 돈다.
+      - name: 시뮬레이터 선택
+        run: |
+          xcrun simctl list runtimes | grep -i ios
+          DESTS=$(python3 - <<'PY'
+          import json, re, subprocess
+
+          output = subprocess.run(
+              ["xcrun", "simctl", "list", "devices", "available", "--json"],
+              capture_output=True, text=True, check=True,
+          ).stdout
+          runtimes = {}
+          for key, devices in json.loads(output)["devices"].items():
+              matched = re.search(r"iOS-(\d+)-(\d+)", key)
+              if matched and devices:
+                  version = (int(matched.group(1)), int(matched.group(2)))
+                  runtimes[version] = devices[0]["udid"]
+
+          newest = max(runtimes)
+          oldest = min(runtimes)
+          picked = [newest] if oldest[0] == newest[0] else [oldest, newest]
+          print(" ".join(f"{v[0]}.{v[1]}={runtimes[v]}" for v in picked))
+          PY
+          )
+          echo "검증 대상 런타임: $DESTS"
+          echo "DESTS=$DESTS" >> $GITHUB_ENV
+
+      # App 스킴은 전 모듈 유닛 테스트를 포함
+      - name: 빌드 및 테스트
+        run: |
+          for entry in $DESTS; do
+            echo "::group::iOS ${entry%%=*}"
+            xcodebuild test -workspace Assignment.xcworkspace -scheme App \
+              -destination "platform=iOS Simulator,id=${entry##*=}"
+            echo "::endgroup::"
+          done

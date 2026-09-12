@@ -84,20 +84,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A13AF3EBB580EFEF55CEAB8"
-               BuildableName = "FavoriteKitTesting.framework"
-               BlueprintName = "FavoriteKitTesting"
-               ReferencedContainer = "container:Domain/FavoriteKit/FavoriteKit.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "51B857C2BD0681AF9685C4C3"
                BuildableName = "FavoriteKitTests.xctest"
                BlueprintName = "FavoriteKitTests"
@@ -154,37 +140,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "889A18F589DFA067DA2D460D"
-               BuildableName = "ProductFeatureDemo.app"
-               BlueprintName = "ProductFeatureDemo"
-               ReferencedContainer = "container:Features/ProductFeature/ProductFeature.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "698C6C24496ABA024F0529E1"
                BuildableName = "ProductFeatureInterface.framework"
                BlueprintName = "ProductFeatureInterface"
-               ReferencedContainer = "container:Features/ProductFeature/ProductFeature.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F556D9712CA6148D29C2CAE4"
-               BuildableName = "ProductFeatureTesting.framework"
-               BlueprintName = "ProductFeatureTesting"
                ReferencedContainer = "container:Features/ProductFeature/ProductFeature.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

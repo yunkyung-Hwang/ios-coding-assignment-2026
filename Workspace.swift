@@ -27,12 +27,5 @@ let workspace = Workspace(
             ]),
             runAction: .runAction(executable: .project(path: "App", target: "App"))
         ),
-        // 모듈 단독 실행
-        .scheme(
-            name: "ProductFeatureDemo",
-            shared: true,
-            buildAction: .buildAction(targets: [.project(path: "Features/ProductFeature", target: "ProductFeatureDemo")]),
-            runAction: .runAction(executable: .project(path: "Features/ProductFeature", target: "ProductFeatureDemo"))
-        ),
     ]
 )

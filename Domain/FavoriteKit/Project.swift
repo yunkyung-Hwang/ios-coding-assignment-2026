@@ -10,11 +10,8 @@ let project = Project(
         .library(name: "FavoriteKit", path: "Sources",
                  dependencies: [.target(name: "FavoriteKitInterface"),
                                 .core("StorageKit")]),
-        .library(name: "FavoriteKitTesting", path: "Testing/Sources",
-                 dependencies: [.target(name: "FavoriteKitInterface")]),
         .unitTests(name: "FavoriteKitTests", path: "Tests/Sources",
                    dependencies: [.target(name: "FavoriteKit"),
-                                  .target(name: "FavoriteKitInterface"),
-                                  .target(name: "FavoriteKitTesting")]),
+                                  .target(name: "FavoriteKitInterface")]),
     ]
 )

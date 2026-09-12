@@ -13,18 +13,9 @@ let project = Project(
                                 .domain("FavoriteKit", target: "FavoriteKitInterface"),  // 구현이 아닌 계약에만 의존
                                 .core("NetworkKit"),
                                 .core("CoreKit")]),
-        .library(name: "ProductFeatureTesting", path: "Testing/Sources",
-                 dependencies: [.target(name: "ProductFeatureInterface")]),
         .unitTests(name: "ProductFeatureTests", path: "Tests/Sources",
                    dependencies: [.target(name: "ProductFeature"),
                                   .target(name: "ProductFeatureInterface"),
-                                  .target(name: "ProductFeatureTesting"),
-                                  .core("NetworkKit"),
-                                  .domain("FavoriteKit", target: "FavoriteKitTesting")]),
-        .app(name: "ProductFeatureDemo", path: "Demo/Sources",
-             infoPlist: "App/Resources/DemoInfo.plist",
-             dependencies: [.target(name: "ProductFeature"),
-                            .target(name: "ProductFeatureTesting"),
-                            .domain("FavoriteKit", target: "FavoriteKitTesting")]),
+                                  .core("NetworkKit")]),
     ]
 )

@@ -10,13 +10,16 @@
 		1CD9CAA2E313DDDF33A12E92 /* FavoriteKitInterface.framework in Dependencies */ = {isa = PBXBuildFile; fileRef = 799EFD1FE1A4C4AC5CAE2811 /* FavoriteKitInterface.framework */; };
 		3370A0140854D0FD4208D27F /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D9EDE443720928AE3E6AB8 /* Placeholder.swift */; };
 		408330BC11034ABAA9C45E3B /* StorageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E42C464CFD2AFB1F915F47AF /* StorageKit.framework */; };
+		61E6F49F940DA0B05DF08C70 /* DefaultFavoriteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBE52B3A7772061D2D7F97C /* DefaultFavoriteStore.swift */; };
 		8A8ACDC2AB7D4974650D1771 /* FavoriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A471ADC19D8803CCE03F02F /* FavoriteKit.framework */; };
+		95B618263F414127BEF659A3 /* DefaultFavoriteStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C839C9B037F4435A6C4F5BA3 /* DefaultFavoriteStoreTests.swift */; };
 		A1F7BE0308B6A1794205C0EE /* FavoriteKitInterface.framework in Dependencies */ = {isa = PBXBuildFile; fileRef = 799EFD1FE1A4C4AC5CAE2811 /* FavoriteKitInterface.framework */; };
 		A5E1485DD9171B2C5E4106B6 /* FileFavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418EBE9288B41EA84A6DC99 /* FileFavoriteRepository.swift */; };
 		B679306AD7108BB46D1E3135 /* FavoriteKitTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8214C32D56983BFE12BB6C05 /* FavoriteKitTesting.framework */; };
 		B94E58474469657A85E8F890 /* TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4D959DE23FA2177FC2F2DF /* TestSupport.swift */; };
 		D0E1CAEDD66E03D093BA0D3D /* FileFavoriteRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B516082D235E119D6715DB3 /* FileFavoriteRepositoryTests.swift */; };
 		D33F0A529F79F459A2A0E9C7 /* FavoriteKitInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799EFD1FE1A4C4AC5CAE2811 /* FavoriteKitInterface.framework */; };
+		E4E390E37A05D9A08CBF9958 /* FavoriteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927856FC3F26BEE6AAD12AC /* FavoriteStore.swift */; };
 		F82D8A6FFA2C47D5E29408AA /* FavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB2DF1A14B28E1C90239A9 /* FavoriteRepository.swift */; };
 		FD8463D528388081C3D26585 /* StorageKit.framework in Dependencies */ = {isa = PBXBuildFile; fileRef = E42C464CFD2AFB1F915F47AF /* StorageKit.framework */; };
 /* End PBXBuildFile section */
@@ -128,9 +131,12 @@
 		51D9EDE443720928AE3E6AB8 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		5A471ADC19D8803CCE03F02F /* FavoriteKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FavoriteKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D4D959DE23FA2177FC2F2DF /* TestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSupport.swift; sourceTree = "<group>"; };
+		6EBE52B3A7772061D2D7F97C /* DefaultFavoriteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFavoriteStore.swift; sourceTree = "<group>"; };
 		799EFD1FE1A4C4AC5CAE2811 /* FavoriteKitInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FavoriteKitInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8214C32D56983BFE12BB6C05 /* FavoriteKitTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FavoriteKitTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B516082D235E119D6715DB3 /* FileFavoriteRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileFavoriteRepositoryTests.swift; sourceTree = "<group>"; };
+		C839C9B037F4435A6C4F5BA3 /* DefaultFavoriteStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFavoriteStoreTests.swift; sourceTree = "<group>"; };
+		C927856FC3F26BEE6AAD12AC /* FavoriteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStore.swift; sourceTree = "<group>"; };
 		D418EBE9288B41EA84A6DC99 /* FileFavoriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileFavoriteRepository.swift; sourceTree = "<group>"; };
 		E42C464CFD2AFB1F915F47AF /* StorageKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B8D9B2A5AFFD741156A4A1 /* FavoriteKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavoriteKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,10 +222,19 @@
 			path = Testing;
 			sourceTree = "<group>";
 		};
+		5ACC21083080D80FE9E652D0 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				6EBE52B3A7772061D2D7F97C /* DefaultFavoriteStore.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
 		7338C1AE69087068303130FB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				3851C6C4E249B48B4DEC2483 /* Data */,
+				5ACC21083080D80FE9E652D0 /* State */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -255,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				3EDB2DF1A14B28E1C90239A9 /* FavoriteRepository.swift */,
+				C927856FC3F26BEE6AAD12AC /* FavoriteStore.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -262,6 +278,7 @@
 		F1F7260674B75B3B60F7C4F9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C839C9B037F4435A6C4F5BA3 /* DefaultFavoriteStoreTests.swift */,
 				9B516082D235E119D6715DB3 /* FileFavoriteRepositoryTests.swift */,
 				6D4D959DE23FA2177FC2F2DF /* TestSupport.swift */,
 			);
@@ -426,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5E1485DD9171B2C5E4106B6 /* FileFavoriteRepository.swift in Sources */,
+				61E6F49F940DA0B05DF08C70 /* DefaultFavoriteStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F82D8A6FFA2C47D5E29408AA /* FavoriteRepository.swift in Sources */,
+				E4E390E37A05D9A08CBF9958 /* FavoriteStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95B618263F414127BEF659A3 /* DefaultFavoriteStoreTests.swift in Sources */,
 				D0E1CAEDD66E03D093BA0D3D /* FileFavoriteRepositoryTests.swift in Sources */,
 				B94E58474469657A85E8F890 /* TestSupport.swift in Sources */,
 			);

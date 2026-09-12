@@ -2,9 +2,11 @@ import SwiftUI
 
 @main
 struct AssignmentApp: App {
+    @State private var root = CompositionRoot()
+
     var body: some Scene {
         WindowGroup {
-            EmptyView()
+            RootView(root: root)
         }
     }
 }

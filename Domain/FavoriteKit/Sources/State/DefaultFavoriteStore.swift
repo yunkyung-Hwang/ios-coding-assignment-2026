@@ -4,23 +4,23 @@ import Observation
 /// 찜 상태의 단일 소유자
 @MainActor
 @Observable
-public final class DefaultFavoriteStore: FavoriteStore {
-    public private(set) var ids: Set<String> = []
+final class DefaultFavoriteStore: FavoriteStore {
+    private(set) var ids: Set<String> = []
 
     @ObservationIgnored private var pendingSave: Task<Void, Never>?
     private let repository: any FavoriteRepository
 
-    public init(repository: any FavoriteRepository) {
+    init(repository: any FavoriteRepository) {
         self.repository = repository
     }
 
     /// 적재 실패 = 파일 손상. 다음 저장이 덮어써 복구하므로 빈 목록으로 시작
-    public func load() async {
+    func load() async {
         ids = (try? await repository.load()) ?? []
     }
 
     /// 화면에 먼저 반영한 뒤 저장
-    public func toggle(_ id: String) async {
+    func toggle(_ id: String) async {
         let wasFavorite = ids.contains(id)
         apply(isFavorite: !wasFavorite, to: id)
         await save(revertingTo: wasFavorite, on: id)

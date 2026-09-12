@@ -12,6 +12,7 @@ let project = Project(
              dependencies: [.feature("ProductFeature"),
                             .feature("ProductFeature", target: "ProductFeatureInterface"),
                             .domain("FavoriteKit"),
-                            .domain("FavoriteKit", target: "FavoriteKitInterface")]),
+                            .domain("FavoriteKit", target: "FavoriteKitInterface"),
+                            .core("NetworkKit")]),   // APIClient 생성. baseURL 은 호스트가 안다
     ]
 )

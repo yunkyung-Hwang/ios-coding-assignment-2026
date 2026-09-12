@@ -21,6 +21,7 @@
 		D33F0A529F79F459A2A0E9C7 /* FavoriteKitInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799EFD1FE1A4C4AC5CAE2811 /* FavoriteKitInterface.framework */; };
 		E4E390E37A05D9A08CBF9958 /* FavoriteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927856FC3F26BEE6AAD12AC /* FavoriteStore.swift */; };
 		F82D8A6FFA2C47D5E29408AA /* FavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB2DF1A14B28E1C90239A9 /* FavoriteRepository.swift */; };
+		FC65E7AF681A99875FE343DC /* FavoriteAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36498CA2A26E8B11B9C09C84 /* FavoriteAssembly.swift */; };
 		FD8463D528388081C3D26585 /* StorageKit.framework in Dependencies */ = {isa = PBXBuildFile; fileRef = E42C464CFD2AFB1F915F47AF /* StorageKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		36498CA2A26E8B11B9C09C84 /* FavoriteAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAssembly.swift; sourceTree = "<group>"; };
 		3EDB2DF1A14B28E1C90239A9 /* FavoriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepository.swift; sourceTree = "<group>"; };
 		51D9EDE443720928AE3E6AB8 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		5A471ADC19D8803CCE03F02F /* FavoriteKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FavoriteKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +237,7 @@
 			children = (
 				3851C6C4E249B48B4DEC2483 /* Data */,
 				5ACC21083080D80FE9E652D0 /* State */,
+				36498CA2A26E8B11B9C09C84 /* FavoriteAssembly.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5E1485DD9171B2C5E4106B6 /* FileFavoriteRepository.swift in Sources */,
+				FC65E7AF681A99875FE343DC /* FavoriteAssembly.swift in Sources */,
 				61E6F49F940DA0B05DF08C70 /* DefaultFavoriteStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

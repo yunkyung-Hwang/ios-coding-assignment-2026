@@ -1,3 +1,13 @@
+# 상품 목록·찜 기능
+
+DummyJSON Products API 기반 상품 목록·상세·찜 구현. 설계 설명·기술적 판단은 PR 본문.
+
+## 실행
+
+`Assignment.xcworkspace` 열고 `App` 스킴 선택.
+
+---
+
 # iOS 개발자 사전 과제
 
 ## 과제 목적

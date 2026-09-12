@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:App/App.xcodeproj">
+   </FileRef>
+   <Group
+      location = "group:Core"
+      name = "Core">
+      <FileRef
+         location = "group:CoreKit/CoreKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:NetworkKit/NetworkKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:StorageKit/StorageKit.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:Domain"
+      name = "Domain">
+      <FileRef
+         location = "group:FavoriteKit/FavoriteKit.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:Features"
+      name = "Features">
+      <FileRef
+         location = "group:ProductFeature/ProductFeature.xcodeproj">
+      </FileRef>
+   </Group>
+</Workspace>

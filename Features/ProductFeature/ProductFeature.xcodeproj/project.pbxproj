@@ -21,6 +21,7 @@
 		2DD5CF7805627F6F8D0F7B90 /* ProductDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A58CF68B5CFBB2585CA41 /* ProductDemoApp.swift */; };
 		2EFB7B760D8545D42BD0120A /* PriceFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B4201924440F91D2E4C0FB /* PriceFormatterTests.swift */; };
 		318DA76392580A4D67D83AF3 /* NetworkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106F99F0CC3B957846E6F9C1 /* NetworkKit.framework */; };
+		3232ECAD52B31FD4B72B86C7 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7FBB82F9BC9453AE4C8F6A /* ProductCell.swift */; };
 		3654859C4986452A204B332D /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B9AA48FD2DAF601AA2A452 /* ErrorStateView.swift */; };
 		3FEA45290EE9ACFDDFF1907D /* NetworkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106F99F0CC3B957846E6F9C1 /* NetworkKit.framework */; };
 		4592A909C3060F89FBC79D8D /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C181FFB37DB7D0EA4DDACEBB /* RemoteImageView.swift */; };
@@ -52,6 +53,7 @@
 		C841B3198C1AAAE75A63E32D /* CoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8292454DD3D36171391841FD /* CoreKit.framework */; };
 		CCA88C35F48EBA7F2047B183 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731EAB956FBE20949AD9CDB /* ProductListViewModel.swift */; };
 		D760416E3C26604C204E8335 /* DefaultFetchProductDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EB7222014674EF7D4B9094 /* DefaultFetchProductDetailUseCase.swift */; };
+		DDC504ABAE86106C431C2855 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E78F62A37B0A1456EAECE /* ProductListView.swift */; };
 		DE21B6DDC03830A6ACCA5134 /* CoreKit.framework in Dependencies */ = {isa = PBXBuildFile; fileRef = 8292454DD3D36171391841FD /* CoreKit.framework */; };
 		E7F813D2BF476F721AB18456 /* RemoteProductRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870BC13CF4A77A787F428AB /* RemoteProductRepositoryTests.swift */; };
 		EAB43216749B892D340B6B05 /* FavoriteKitTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED1B610F57994EE518F49BB /* FavoriteKitTesting.framework */; };
@@ -225,6 +227,8 @@
 		7FC6DB49B9F001C3C901B2B5 /* ProductFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProductFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8292454DD3D36171391841FD /* CoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B858D509D6628C9C722D66 /* ProductListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListResponseDTO.swift; sourceTree = "<group>"; };
+		8D7FBB82F9BC9453AE4C8F6A /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		8E2E78F62A37B0A1456EAECE /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		9A30F2458419E6E6CE7F4E16 /* ProductMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMapper.swift; sourceTree = "<group>"; };
 		B8D6BC420150750A1A0F5D37 /* ProductSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSummary.swift; sourceTree = "<group>"; };
 		C179600C5A587A67206CFE8A /* ProductLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLayout.swift; sourceTree = "<group>"; };
@@ -385,7 +389,9 @@
 		745B28B9A2E11B8537220E8E /* List */ = {
 			isa = PBXGroup;
 			children = (
+				8D7FBB82F9BC9453AE4C8F6A /* ProductCell.swift */,
 				C179600C5A587A67206CFE8A /* ProductLayout.swift */,
+				8E2E78F62A37B0A1456EAECE /* ProductListView.swift */,
 				C731EAB956FBE20949AD9CDB /* ProductListViewModel.swift */,
 			);
 			path = List;
@@ -761,7 +767,9 @@
 				0C194BF6C1B4E096C958E098 /* PriceText.swift in Sources */,
 				76545FD7A96B37A61AFBA1FD /* RatingReviewRow.swift in Sources */,
 				4592A909C3060F89FBC79D8D /* RemoteImageView.swift in Sources */,
+				3232ECAD52B31FD4B72B86C7 /* ProductCell.swift in Sources */,
 				7FBD9C8D3AD2DAA3AC8D69D5 /* ProductLayout.swift in Sources */,
+				DDC504ABAE86106C431C2855 /* ProductListView.swift in Sources */,
 				CCA88C35F48EBA7F2047B183 /* ProductListViewModel.swift in Sources */,
 				D760416E3C26604C204E8335 /* DefaultFetchProductDetailUseCase.swift in Sources */,
 				C7B7652645BC2780372BF5BB /* DefaultFetchProductListUseCase.swift in Sources */,

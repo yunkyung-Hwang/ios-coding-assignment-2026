@@ -138,6 +138,89 @@ struct ProductListTests {
         }
     }
 
+    @Suite("더 보기를 누르면")
+    @MainActor
+    struct LoadMore {
+
+        /// 지정한 총 건수를 페이지 단위로 잘라주는 가짜 서버
+        private func makePagedViewModel(total: Int) -> ProductListViewModel {
+            makeViewModel { offset, limit in
+                let end = min(offset + limit, total)
+                let items = (offset ..< max(offset, end)).map { makeSummary($0) }
+                return Paginated(items: items, total: total, offset: offset)
+            }
+        }
+
+        private var pageSize: Int { ProductListViewModel.pageSize }
+
+        @Test("[R-01] 다음 페이지가 목록 뒤에 이어진다")
+        func appendsNextPage() async {
+            let viewModel = makePagedViewModel(total: pageSize * 4)
+            await viewModel.onAppear()
+
+            await viewModel.loadMore()
+
+            #expect(viewModel.state.value?.count == pageSize * 2)
+        }
+
+        @Test("[R-01] 전체를 불러오면 더 보기가 사라진다")
+        func hidesWhenExhausted() async {
+            let total = pageSize * 2
+            let viewModel = makePagedViewModel(total: total)
+            await viewModel.onAppear()
+
+            await viewModel.loadMore()
+
+            #expect(viewModel.state.value?.count == total)
+            #expect(viewModel.hasMore == false)
+        }
+
+        @Test("[R-01] 첫 페이지만으로 소진되면 더 보기가 없다")
+        func hidesWhenSinglePage() async {
+            let viewModel = makePagedViewModel(total: pageSize)
+
+            await viewModel.onAppear()
+
+            #expect(viewModel.hasMore == false)
+        }
+
+        @Test("[R-01] 실패해도 이미 불러온 목록은 유지된다")
+        func keepsProductsOnFailure() async {
+            let shouldFail = FailureSwitch(isOn: false)
+            let viewModel = makeViewModel { offset, _ in
+                if await shouldFail.isOn { throw APIError.transport }
+                return Paginated(items: [makeSummary(offset)], total: 194, offset: offset)
+            }
+            await viewModel.onAppear()
+            await shouldFail.turnOn()
+
+            await viewModel.loadMore()
+
+            #expect(viewModel.state.value?.count == 1)
+            #expect(viewModel.loadMoreFailure == "네트워크에 연결할 수 없습니다")
+        }
+
+        @Test("[R-01] 실패 후에도 더 보기가 남아 재시도할 수 있다")
+        func allowsRetryAfterFailure() async {
+            let shouldFail = FailureSwitch(isOn: false)
+            let viewModel = makeViewModel { offset, _ in
+                if await shouldFail.isOn {
+                    await shouldFail.turnOff()
+                    throw APIError.transport
+                }
+                return Paginated(items: [makeSummary(offset)], total: 194, offset: offset)
+            }
+            await viewModel.onAppear()
+            await shouldFail.turnOn()
+            await viewModel.loadMore()
+
+            await viewModel.loadMore()
+
+            #expect(viewModel.hasMore)
+            #expect(viewModel.state.value?.count == 2)
+        }
+    }
+
     @Suite("레이아웃을 전환하면")
     @MainActor
     struct LayoutToggle {
@@ -190,7 +273,10 @@ private actor RequestRecorder {
 }
 
 private actor FailureSwitch {
-    private(set) var isOn = true
+    private(set) var isOn: Bool
 
+    init(isOn: Bool = true) { self.isOn = isOn }
+
+    func turnOn() { isOn = true }
     func turnOff() { isOn = false }
 }

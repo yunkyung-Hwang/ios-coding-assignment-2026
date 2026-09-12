@@ -24,6 +24,18 @@ struct ProductListView: View {
             // 상단 행을 콘텐츠에 둬 목록과 함께 스크롤되게 한다
             .toolbar(.hidden, for: .navigationBar)
             .task { await viewModel.onAppear() }
+            // 추가 조회 실패는 목록을 지우지 않는다. 다이얼로그로만 알린다
+            .alert(
+                "불러오지 못했습니다",
+                isPresented: Binding(
+                    get: { viewModel.loadMoreFailure != nil },
+                    set: { if !$0 { viewModel.loadMoreFailure = nil } }
+                )
+            ) {
+                Button("확인", role: .cancel) {}
+            } message: {
+                Text(viewModel.loadMoreFailure ?? "")
+            }
     }
 
     @ViewBuilder
@@ -48,6 +60,11 @@ struct ProductListView: View {
                 LazyVGrid(columns: viewModel.layout.columns, spacing: Metrics.rowSpacing) {
                     ForEach(products) { product in
                         cell(product)
+                    }
+                }
+                if viewModel.hasMore {
+                    LoadMoreButton(isLoading: viewModel.isLoadingMore) {
+                        Task { await viewModel.loadMore() }
                     }
                 }
             }

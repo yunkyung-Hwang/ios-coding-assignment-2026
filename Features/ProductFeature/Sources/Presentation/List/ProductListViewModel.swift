@@ -1,5 +1,4 @@
 import CoreKit
-import NetworkKit
 import Observation
 import ProductFeatureInterface
 
@@ -25,7 +24,7 @@ final class ProductListViewModel {
     init(fetchProductList: any FetchProductListUseCase) {
         paginator = Paginator(
             pageSize: Self.pageSize,
-            errorMessage: Self.message(for:)
+            errorMessage: ProductErrorMessage.text(for:)
         ) { offset, limit in
             try await fetchProductList.execute(offset: offset, limit: limit)
         }
@@ -49,20 +48,6 @@ final class ProductListViewModel {
         await paginator.loadMore()
         if case let .failed(message) = paginator.more {
             loadMoreFailure = message
-        }
-    }
-
-    /// 오류 문구는 화면 계층이 만든다. NetworkKit 은 종류만 전달
-    private nonisolated static func message(for error: Error) -> String {
-        switch error {
-        case APIError.transport:
-            "네트워크에 연결할 수 없습니다"
-        case let APIError.server(_, message?):
-            message
-        case let APIError.server(status, nil):
-            "서버 오류가 발생했습니다 (\(status))"
-        default:
-            "잠시 후 다시 시도해 주세요"
         }
     }
 }

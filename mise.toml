@@ -1,0 +1,6 @@
+# 개발 도구 버전 고정
+# 빌드에는 불필요. clone 후 .xcworkspace 열면 바로 빌드
+# Tuist 재생성 시에만 사용
+
+[tools]
+tuist = "4.128.1"

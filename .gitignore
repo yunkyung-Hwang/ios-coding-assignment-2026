@@ -1,0 +1,21 @@
+## macOS
+.DS_Store
+
+## Xcode
+xcuserdata/
+*.xcuserstate
+*.moved-aside
+*.hmap
+*.dSYM
+*.dSYM.zip
+*.ipa
+DerivedData/
+
+## Tuist
+Derived/
+.tuist-bin/
+# .xcodeproj/.xcworkspace 는 제외하지 않음 — clone 후 Tuist 없이 빌드 가능해야 함
+
+## Swift Package Manager
+.build/
+.swiftpm/
